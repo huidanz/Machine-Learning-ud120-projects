@@ -29,8 +29,8 @@ from sklearn import svm
 from sklearn.metrics import accuracy_score
 clf = svm.SVC(kernel="rbf", C=10000.)
 # cut the dataset to 1%
-features_train = features_train[:len(features_train)/100]
-labels_train = labels_train[:len(labels_train)/100]
+#features_train = features_train[:len(features_train)/100]
+#labels_train = labels_train[:len(labels_train)/100]
 
 t0 = time()
 clf.fit(features_train, labels_train)
@@ -43,7 +43,12 @@ print "predicting time:", round(time()-t1, 3), "s"
 
 print accuracy_score(labels_test, pred)  
     
-    
+#print "10th:", pred[10]    
+#print "26th:", pred[26]   
+#print "50th:", pred[50]   
+
+# how many are predicted to be in the  Chirs(1)
+print list(pred).count(1)
 #########################################################
 
 
