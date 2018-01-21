@@ -36,7 +36,7 @@ pred = clf.predict(features_test)
 print "predicting time:", round(time()-t1, 3), "s"
 
 print accuracy_score(labels_test, pred)
-
+print len(features_train[0])
 #########################################################
 
 
