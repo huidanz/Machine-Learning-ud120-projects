@@ -66,6 +66,11 @@ try:
     plt.plot( feature_test, reg.predict(feature_test) )
 except NameError:
     pass
+
+## add another regression line 
+reg.fit(feature_test, target_test)
+plt.plot(feature_train, reg.predict(feature_train), color="b") 
+
 plt.xlabel(features_list[1])
 plt.ylabel(features_list[0])
 plt.legend()
@@ -73,5 +78,5 @@ plt.show()
 
 print "slope:", reg.coef_
 print "interecpt:", reg.intercept_
-print "training score:", reg.score(feature_train, target_train)
-print "testing score:", reg.score(feature_test, target_test)
+#print "training score:", reg.score(feature_train, target_train)
+#print "testing score:", reg.score(feature_test, target_test)
