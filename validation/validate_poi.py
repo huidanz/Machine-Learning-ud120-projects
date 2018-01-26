@@ -28,5 +28,18 @@ labels, features = targetFeatureSplit(data)
 
 
 ### it's all yours from here forward!  
+from sklearn import tree
+clf = tree.DecisionTreeClassifier()
+clf = clf.fit(features, labels)
+pred = clf.predict(features)
 
+from sklearn.metrics import accuracy_score
+print "accuracy_score(overfitting):", accuracy_score(labels, pred)
 
+from sklearn.model_selection import train_test_split
+features_train, features_test, labels_train, labels_test = train_test_split(features, labels, random_state=42, test_size=0.3)
+
+clf = clf.fit(features_train, labels_train)
+pred = clf.predict(features_test)
+
+print "accuracy_score(train_test_split):", accuracy_score(labels_test, pred)
